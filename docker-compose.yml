@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  nodejs:
+    image: thecodingmachine/php:7.4-v3-apache-node12
+    environment:
+      STARTUP_COMMAND_1: "npm run start"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/var/www/html

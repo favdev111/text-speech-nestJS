@@ -10,6 +10,7 @@ import { AppService } from './app.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { Helper } from '../shared/helper';
+import { HandleDocx } from '../shared/handleDocx';
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
@@ -24,8 +25,12 @@ export class AppController {
     }),
   )
   uploadfile(@UploadedFiles() files): string {
+    HandleDocx.extractDocx('./uploads/test.docx').then(value => {
+			console.log(value);
+		} );
     return 'success';
   }
+
   @Get()
   @Render('index')
   root() {

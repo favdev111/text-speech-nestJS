@@ -7,7 +7,6 @@ export class Helper {
     // } else if (file.mimetype.indexOf('png') > -1) {
     //   fileExtension = 'png';
     // }
-    console.log(file);
     // const originalName = file.originalname.split('.')[0];
     // cb(null, originalName + '-' + uniqueSuffix + '.' + file.mimetype);
     cb(null, file.originalname);

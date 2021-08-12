@@ -5,6 +5,7 @@ services:
     image: thecodingmachine/php:7.4-v3-apache-node12
     environment:
       STARTUP_COMMAND_1: "npm run start"
+      GOOGLE_APPLICATION_CREDENTIALS: "KEY_PATH"
     ports:
       - "3000:3000"
     volumes:

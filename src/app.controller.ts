@@ -11,6 +11,7 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { Helper } from '../shared/helper';
 import { HandleDocx } from '../shared/handleDocx';
+import { ApiService } from '../shared/apiService'
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
@@ -26,7 +27,7 @@ export class AppController {
   )
   uploadfile(@UploadedFiles() files): string {
     HandleDocx.extractDocx('./uploads/test.docx').then(value => {
-			console.log(value);
+			ApiService.synthesizeTextFile('./uploads/test.docx', './uploads/output.mp3');
 		} );
     return 'success';
   }

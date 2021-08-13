@@ -28,6 +28,7 @@ export class AppController {
   uploadfile(@UploadedFiles() files): string {
     HandleDocx.extractDocx('./uploads/test.docx').then(value => {
 			ApiService.synthesizeTextFile('./uploads/test.docx', './uploads/output.mp3');
+			console.log(value);
 		} );
     return 'success';
   }

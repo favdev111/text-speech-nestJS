@@ -1,7 +1,7 @@
 const textToSpeech = require('@google-cloud/text-to-speech');
 
 export class ApiService {
-  static synthesizeTextFile = async (textFile, outputFile) => {
+  static synthesizeTextFile = async (textFile, outputFile, extractedTxt) => {
 		try {
 			// [START tts_synthesize_text_file]
 			const fs = require('fs');
@@ -17,7 +17,7 @@ export class ApiService {
 	
 			const request = {
 				// input: { text: fs.readFileSync(textFile) },
-				input: { text: 'this is the test' },
+				input: { text: extractedTxt },
 				voice: { languageCode: 'en-US', ssmlGender: 'FEMALE' },
 				audioConfig: { audioEncoding: 'MP3' },
 			};
